@@ -1,6 +1,7 @@
 package com.AlizoneInvoice.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +15,8 @@ import com.AlizoneInvoice.Service.TransactionService;
 
 @RestController
 @RequestMapping("/alizone")
-public class TransactionController implements ITransactionService {
+@CrossOrigin(origins = "*")
+public class TransactionController implements ITransactionController {
 	
 	@Autowired
 	private TransactionService transactionService;
