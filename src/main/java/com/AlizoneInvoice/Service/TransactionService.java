@@ -2,6 +2,7 @@ package com.AlizoneInvoice.Service;
 import com.AlizoneInvoice.Repository.TransactionRepository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,12 @@ public class TransactionService implements ITransactionService {
 		Transaction transaction=optional.get();
 		transactionRepository.delete(transaction);
 		return transaction;
+	}
+	
+	@Override
+	public List<Transaction> getallTransactions() {
+		List<Transaction> transactions=transactionRepository.findAll();
+		return transactions;
 	}
 	
 
