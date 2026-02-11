@@ -1,6 +1,7 @@
 package com.AlizoneInvoice.Service;
 import com.AlizoneInvoice.Repository.TransactionRepository;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +18,12 @@ public class TransactionService implements ITransactionService {
 	@Override
 	public Transaction addTransaction(Transaction invoice) {
 		Transaction transaction=new Transaction();
-		transaction.setAmount(invoice.getAmount());
-		transaction.setDate(invoice.getDate());
-		transaction.setDescription(invoice.getDescription());
+		transaction.setTutar(invoice.getTutar());
+		transaction.setFaturaTarihi(invoice.getFaturaTarihi());
+		transaction.setAciklama(invoice.getAciklama());
 		transaction.setId(invoice.getId());
 		transaction.setType(invoice.getType());
+		transaction.setEklenmetarihi(LocalDateTime.now());
 		transactionRepository.save(transaction);
 		return transaction;
 	}

@@ -2,6 +2,7 @@ package com.AlizoneInvoice.Entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -25,13 +26,15 @@ public class Transaction {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private BigDecimal amount;
+	private BigDecimal tutar;
 	
 	@Enumerated(EnumType.STRING)
 	private InvoiceType type;
 	
-	private String description;
+	private String aciklama;
 	
-	private LocalDate date;
+	private LocalDate faturaTarihi;
+	
+	private LocalDateTime eklenmetarihi;
 
 }
