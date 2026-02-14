@@ -4,6 +4,7 @@ import com.AlizoneInvoice.Repository.TransactionRepository;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.time.ZoneId;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,9 @@ public class TransactionService implements ITransactionService {
 		transaction.setAciklama(invoice.getAciklama());
 		transaction.setId(invoice.getId());
 		transaction.setType(invoice.getType());
-		transaction.setEklenmetarihi(LocalDateTime.now());
+		transaction.setEklenmetarihi(
+			    LocalDateTime.now(ZoneId.of("Europe/Istanbul"))
+			);
 		transactionRepository.save(transaction);
 		return transaction;
 	}
